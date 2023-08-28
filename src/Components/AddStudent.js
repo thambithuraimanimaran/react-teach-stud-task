@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import BaseApp from "../Base/Base";
 import { useHistory } from "react-router-dom";
+import { AppState } from "../context/AppProvider";
 
-export function AddStudent({ usestudent, setUsestudent }) {
+export function AddStudent() {
+    const{usestudent,setUsestudent}=AppState();
     const [roll, setRoll] = useState("");
     const [name, setName] = useState("");
     const [group, setGroup] = useState("");

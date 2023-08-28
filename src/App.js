@@ -19,7 +19,7 @@ import { HomePage } from './Home/Home';
 
 function App() {
   const [usestudent, setUsestudent] = useState(StudentData);
-  const [teacher,setTeacher]=useState(TeacherData);
+ 
   return (
     <div className="App">
 
@@ -28,33 +28,28 @@ function App() {
           <HomePage/>
         </Route>
         <Route exact path="/student">
-          <UserStudent usestudent={usestudent} setUsestudent={setUsestudent} />
+          <UserStudent/>
         </Route>
         <Route path="/addstudent">
-          <AddStudent
-            usestudent={usestudent}
-            setUsestudent={setUsestudent} />
+          <AddStudent/>
         </Route>
         <Route path="/viewstud/:id">
-          <ViewStudent
-            usestudent={usestudent} />
+          <ViewStudent/>
         </Route>
         <Route path="/editstud/:id">
-          <EditStudent
-            usestudent={usestudent}
-            setUsestudent={setUsestudent} />
+          <EditStudent/>
         </Route>
         <Route path="/teacher">
-        <UserTeacher teacher={teacher} setTeacher={setTeacher}/>
+        <UserTeacher/>
         </Route>
         <Route path="/addteacher">
-        <AddTeacher teacher={teacher} setTeacher={setTeacher}/>
+        <AddTeacher/>
         </Route>
         <Route path="/viewteacher/:id">
-          <ViewTeacher teacher={teacher}/>
+          <ViewTeacher/>
         </Route>
         <Route path="/editteacher/:id">
-          <EditTeacher teacher={teacher} setTeacher={setTeacher}/>
+          <EditTeacher/>
         </Route>
 
 

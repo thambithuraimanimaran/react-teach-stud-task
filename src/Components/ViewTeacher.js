@@ -1,8 +1,10 @@
 import React from "react";
 import BaseApp from "../Base/Base";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { AppState } from "../context/AppProvider";
 
-export function ViewTeacher({teacher}){
+export function ViewTeacher(){
+    const {teacher}=AppState();
 
     const {id} = useParams();
     const persons = teacher[id]

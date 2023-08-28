@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import BaseApp from "../Base/Base";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { AppState } from "../context/AppProvider";
 
-export function EditTeacher({ teacher, setTeacher }) {
+export function EditTeacher() {
+    const {teacher,setTeacher}= AppState();
     const [idx, setIdx] = useState("");
     const [name, setName] = useState("");
     const [subject, setSubject] = useState("");

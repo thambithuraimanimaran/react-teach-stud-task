@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import BaseApp from "../Base/Base";
-import { TeacherData } from "../Data/TeacherData";
-import { AddTeacher } from "./AddTeacher";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-export function UserTeacher({teacher,setTeacher}){
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { AppState } from "../context/AppProvider";
+
+export function UserTeacher(){
+    const {teacher,setTeacher} = AppState();
     const history = useHistory();
 
     const DeleteTeacher = (e)=>{
@@ -20,7 +21,8 @@ export function UserTeacher({teacher,setTeacher}){
                 <h2 className="text-dark">Teacher's Details</h2>
             </div>
             <div className="d-flex flex-wrap justify-content-center ">
-            {teacher.map((mentor,idx)=>(
+            {teacher && (
+            teacher?.map((mentor,idx)=>(
                 <div key={idx} className="card width m-4">
                     <div className="card-header">
                         <h2>{mentor.name}</h2>
@@ -39,7 +41,7 @@ export function UserTeacher({teacher,setTeacher}){
                         onClick={()=>DeleteTeacher(mentor.id)}>Delete</button>
                     </div>
                 </div>
-            ))}
+            )))}
             </div>
         </div>
         

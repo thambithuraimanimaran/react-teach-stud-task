@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import BaseApp from "../Base/Base";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { AppState } from "../context/AppProvider";
 
-export function EditStudent({ usestudent, setUsestudent }) {
+export function EditStudent() {
+    const{usestudent,setUsestudent}=AppState();
     const [rollx, setRollx] = useState("");
     const [name, setName] = useState("");
     const [group, setGroup] = useState("");
@@ -39,9 +41,10 @@ export function EditStudent({ usestudent, setUsestudent }) {
 
     return (
         <BaseApp>
+        
             <div className="d-flex flex-wrap justify-content-center  vh-100">
                 <div className="width2 form">
-                    <div><h2 className="text-light">Change the Data Here!</h2></div>
+                    <div><h2 className="text-dark">Change the Data Here!</h2></div>
                 <input placeholder="roll" className="form-control m-4 rounded-pill "
                     value={rollx}
                     onChange={(event) => setRollx(event.target.value)} />

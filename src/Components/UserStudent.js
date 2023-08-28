@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { StudentData } from "../Data/StudentData";
-import BaseApp from "../Base/Base";
-import { AddStudent } from "./AddStudent";
-import {useHistory} from "react-router-dom";
+import React from "react";
 
-export function UserStudent({usestudent,setUsestudent}){
+import BaseApp from "../Base/Base";
+
+import {useHistory} from "react-router-dom";
+import { AppState } from "../context/AppProvider";
+
+export function UserStudent(){
+    const{usestudent,setUsestudent}=AppState();
     const history = useHistory();
     
 
@@ -20,7 +22,8 @@ export function UserStudent({usestudent,setUsestudent}){
                 <h2 className="text-dark">Students Details</h2>
             </div>
             <div className="d-flex flex-wrap justify-content-center">
-            {usestudent.map((stud,idx)=>(
+            { UserStudent && (
+            usestudent?.map((stud,idx)=>(
                 <div key={idx} className="card width m-4">
                     <div className="card-header">
                         <h2>{stud.name}</h2>
@@ -39,7 +42,7 @@ export function UserStudent({usestudent,setUsestudent}){
                         onClick={()=>{deleteStudent(stud.roll)}}>Delete</button>
                     </div>
                 </div>
-            ))}
+            )))}
             </div>
         </div>
        </BaseApp>
